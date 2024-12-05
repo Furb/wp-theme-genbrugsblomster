@@ -1,9 +1,15 @@
 <?php get_header(); ?>
 <div class="bg_ramme">
       <div class="container">
-         <h1 class="overskrift">
-          <?php get_the_title(); ?>
+        <?php if ( have_posts() ) : ?>
+    <?php while ( have_posts() ) : the_post(); ?>
+        <h1 class="overskrift">
+          <?php the_title(); ?>
         </h1>
+    
+
+
+        
         <div class="info_boks">
           <div class="info_boks-tekst">
             <p>
@@ -17,7 +23,7 @@
             </button>
           </div>
           <div class="info_boks-billede">
-            <img src="assets/images/asset 16.jpeg" alt="placeholder_image" />
+            <img src="http://genbrugsplanterdk.local/wp-content/uploads/2024/12/planter_wild.svg" alt="placeholder_image" />
           </div>
         </div>
         <div class="info_boks">
@@ -63,7 +69,9 @@
             <p class="testimonial_job color_orkide">ReThink</p>
           </blockquote>
         </div>
+            <?php endwhile; ?>
+<?php endif; ?>
       </div>
       <!-- Container slut-->
     </div>
-<?php get_footer(); ?>
+    <?php get_footer(); ?>
